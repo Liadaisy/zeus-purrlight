@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --maroon-deep: #451522;
+    --burgundy-rich: #641E31;
+    --maroon-warm: #7D3042;
+    --gold-antique: #D5A642;
+    --gold-bright: #F0C968;
+    --cream: #FFF4DC;
+    --parchment: #F3E2BD;
+    --peach: #E9A878;
+    --terracotta: #B95D47;
+    --dark-brown: #352019;
+    --burgundy-dark: #241017;
+    --bright-bg: #FFF8EB;
+    --bright-text: #35151D;
+
+    --font-serif: var(--font-cinzel), Georgia, serif;
+    --font-body: var(--font-sans), system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--bright-bg);
+    color: var(--bright-text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-storybook {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF2D6;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5A642;
+  border-radius: 4px;
+  border: 1px solid #FFF8EB;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B95D47;
+}
+
+/* Warm Parchment Texture Effect */
+.parchment-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FFF5E2 100%);
+  color: #352019;
+  box-shadow: 0 10px 35px rgba(69, 21, 34, 0.12), 0 0 0 1px rgba(213, 166, 66, 0.5);
+}
+
+/* Storybook Border Ornamentation */
+.storybook-frame {
+  position: relative;
+  border: 1px solid rgba(213, 166, 66, 0.6);
+  box-shadow: 0 12px 35px rgba(69, 21, 34, 0.12);
+}
+.storybook-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(213, 166, 66, 0.4);
+  pointer-events: none;
+}
+
+/* Warm Lantern Glow */
+.lantern-glow {
+  box-shadow: 0 0 25px rgba(240, 201, 104, 0.6), 0 0 60px rgba(213, 166, 66, 0.35);
+  transition: box-shadow 0.6s ease, filter 0.6s ease;
+}
+.lantern-glow-bright {
+  box-shadow: 0 0 45px rgba(240, 201, 104, 0.9), 0 0 90px rgba(240, 201, 104, 0.6);
+  filter: brightness(1.2);
+}
+
+/* Concentric Purr Wave Keyframes */
+@keyframes purr-ripple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.purr-wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(213, 166, 66, 0.7);
+  box-shadow: 0 0 20px rgba(240, 201, 104, 0.5);
+  animation: purr-ripple 3.2s cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+/* Subtle Floating Particles */
+@keyframes float-drift {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px);
+  }
+}
+
+.animate-float {
+  animation: float-drift 6s ease-in-out infinite;
+}
+
+/* Pawprint Glow and Fade */
+@keyframes paw-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: drop-shadow(0 0 8px #D5A642);
+  }
+  20% {
+    opacity: 0.95;
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px #D5A642);
+  }
+  70% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 6px #B95D47);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.animate-paw {
+  animation: paw-glow 3.5s ease-out forwards;
+}
+
+/* Walking Bob Keyframe */
+@keyframes cat-walk-bob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+.cat-bob {
+  animation: cat-walk-bob 0.75s ease-in-out infinite;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
